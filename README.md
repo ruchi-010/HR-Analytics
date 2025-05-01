@@ -16,7 +16,7 @@ This project utilizes an HR dataset comprising several tables designed to provid
 
 ### 1. Performance
 
-This table contains data related to employee performance reviews. [cite: 2]
+This table contains data related to employee performance reviews.
 
 | Column Name                     | Description                                                                                                | Data Type |
 | :------------------------------ | :--------------------------------------------------------------------------------------------------------- | :-------- |
@@ -34,7 +34,7 @@ This table contains data related to employee performance reviews. [cite: 2]
 
 ### 2. Employee
 
-This table contains core employee information. [cite: 4, 3]
+This table contains core employee information.
 
 | Column Name             | Description                                                                                                | Data Type |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------- | :-------- |
@@ -64,7 +64,7 @@ This table contains core employee information. [cite: 4, 3]
 
 ### 3. Satisfied Level
 
-This table provides the descriptive labels for satisfaction ratings. [cite: 6, 5]
+This table provides the descriptive labels for satisfaction ratings.
 
 | Column Name       | Description                                                                                               | Data Type |
 | :---------------- | :-------------------------------------------------------------------------------------------------------- | :-------- |
@@ -73,7 +73,7 @@ This table provides the descriptive labels for satisfaction ratings. [cite: 6, 5
 
 ### 4. Rating Level
 
-This table provides the descriptive labels for performance ratings. [cite: 8, 7]
+This table provides the descriptive labels for performance ratings.
 
 | Column Name   | Description                                                                          | Data Type |
 | :------------ | :----------------------------------------------------------------------------------- | :-------- |
@@ -82,7 +82,7 @@ This table provides the descriptive labels for performance ratings. [cite: 8, 7]
 
 ### 5. Education Level
 
-This table provides the descriptive labels for education levels. [cite: 10, 9]
+This table provides the descriptive labels for education levels.
 
 | Column Name       | Description                                                        | Data Type |
 | :---------------- | :----------------------------------------------------------------- | :-------- |
@@ -91,5 +91,47 @@ This table provides the descriptive labels for education levels. [cite: 10, 9]
 
 **Note:** "Dim" and "Fact" prefixes in the original metadata refer to dimensional modeling concepts, which are relevant to how the data might be structured for analysis (e.g., dimensions for descriptive attributes, facts for measurable events).
 
-
 ![Data Model](HR-Analytics/Images/data_model.jpg)
+
+# Data Exploration and Analysis
+This project involved a thorough exploration of AtLabs' HR data to understand key workforce dynamics and inform strategic decision-making. The analysis covered several key areas:
+
+**1. Employee Demographics:**
+
+* Analysis of employee distribution by age, gender, ethnicity, and state to understand the composition of the workforce.
+* Examination of education levels and fields of study to identify the skills and qualifications present within the company.
+* Investigation of marital status and its potential correlation with other factors like job role or attrition.
+
+**2. Attrition Analysis:**
+
+* Calculation and visualization of overall attrition rates to identify the extent of employee turnover.
+* Detailed analysis of attrition rates by state, department, job role, and demographic groups to pinpoint areas with higher turnover.
+* Exploration of factors potentially influencing attrition, such as salary, tenure, years in role, and manager relationships.
+
+**3. Compensation Analysis:**
+
+* Examination of salary distributions across the company to understand pay ranges and identify potential outliers.
+* Comparison of average salaries by department, job role, education level, and demographic groups to detect any pay disparities.
+* Analysis of the relationship between salary and factors like years of experience, performance ratings, and promotion history.
+
+**4. Performance and Satisfaction:**
+
+* Analysis of employee satisfaction levels across different dimensions (environment, job, relationships, work-life balance).
+* Comparison of self-ratings and manager ratings to identify potential discrepancies in performance perception.
+* Exploration of the impact of training opportunities on employee performance and satisfaction.
+
+**5. Tenure and Engagement:**
+
+* Analysis of employee tenure to understand the length of time employees stay with the company.
+* Investigation of the relationship between tenure and factors like job role, department, and manager relationships.
+* Exploration of employee engagement through metrics like overtime work and business travel frequency.
+
+**Some of the DAX measures used are mentioned below:**
+
+| Measure Name               | Description                                                                                             | Formula                                                                                                                               |
+| :------------------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `Active Employees`         | Calculates the total number of employees who have not left the organization.                           | `CALCULATE([Total Employees], FILTER(Employee, Employee[Attrition] = "No"))`                                                            |
+| `HeadCount YOY Growth`     | Determines the percentage change in the total number of employees compared to the previous year.        | `VAR LastYear = CALCULATE([Total Employees], DATEADD('Calendar'[Date], -1, YEAR)) RETURN DIVIDE([Total Employees] - LastYear, LastYear, 0)` |
+| `EnvSat tooltip`           | Retrieves the text description of the environment satisfaction rating based on the numerical value.      | `VAR RatingID = CALCULATE(MAX(PerformanceRating[EnvironmentSatisfaction]), USERELATIONSHIP('Calendar'[Date], PerformanceRating[ReviewDate])) RETURN LOOKUPVALUE(SatisfiedLevel[SatisfactionLevel], SatisfiedLevel[SatisfactionID], RatingID)` |
+| `Attrition Change Label`   | Creates a visual label (arrow and percentage) indicating the change in attrition rate year-over-year. | `VAR curr = [Attrition Rate CY] VAR prev = [Attrition Rate PY] VAR pct = DIVIDE(curr - prev, prev, 0) VAR arrow = IF(pct>0, UNICHAR(8593), UNICHAR(8595)) RETURN arrow&" "&FORMAT(pct, "0.00%")` |
+| `Recently Promoted CY`     | Counts the number of active employees promoted within the current fiscal year.                        | `CALCULATE(DISTINCTCOUNT(Employee[EmployeeID]), Employee[Attrition] = "No", Employee[YearsSinceLastPromotion] = 0, 'Calendar'[FiscalYearNum] = MAX('Calendar'[FiscalYearNum]))` |
