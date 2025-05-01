@@ -91,7 +91,7 @@ This table provides the descriptive labels for education levels.
 
 **Note:** "Dim" and "Fact" prefixes in the original metadata refer to dimensional modeling concepts, which are relevant to how the data might be structured for analysis (e.g., dimensions for descriptive attributes, facts for measurable events).
 
-![Data Model](HR-Analytics/Images/data_model.jpg)
+![Data Model](Images/data_model.jpg)
 
 # Data Exploration and Analysis
 This project involved a thorough exploration of AtLabs' HR data to understand key workforce dynamics and inform strategic decision-making. The analysis covered several key areas:
