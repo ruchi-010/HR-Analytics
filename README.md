@@ -90,4 +90,6 @@ This table provides the descriptive labels for education levels. [cite: 10, 9]
 | `EducationLevel`  | Provides meaning to the education level (e.g., Doctorate, Masters). | `text`    |
 
 **Note:** "Dim" and "Fact" prefixes in the original metadata refer to dimensional modeling concepts, which are relevant to how the data might be structured for analysis (e.g., dimensions for descriptive attributes, facts for measurable events).
-[HR-Analytics]!(Images/data_model.jpg)
+
+
+![Data Model](HR-Analytics/Images/data_model.jpg)
