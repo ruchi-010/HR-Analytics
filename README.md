@@ -106,7 +106,7 @@ This project involved a thorough exploration of AtLabs' HR data to understand ke
 
 * Calculation and visualization of overall attrition rates to identify the extent of employee turnover.
 * Detailed analysis of attrition rates by state, department, job role, and demographic groups to pinpoint areas with higher turnover.
-* Exploration of factors potentially influencing attrition, such as salary, tenure, years in role, and manager relationships.
+* Exploration of factors potentially influencing attrition, such as salary, tenure, years in role, and stock options.
 
 **3. Compensation Analysis:**
 
@@ -135,3 +135,7 @@ This project involved a thorough exploration of AtLabs' HR data to understand ke
 | `EnvSat tooltip`           | Retrieves the text description of the environment satisfaction rating based on the numerical value.      | `VAR RatingID = CALCULATE(MAX(PerformanceRating[EnvironmentSatisfaction]), USERELATIONSHIP('Calendar'[Date], PerformanceRating[ReviewDate])) RETURN LOOKUPVALUE(SatisfiedLevel[SatisfactionLevel], SatisfiedLevel[SatisfactionID], RatingID)` |
 | `Attrition Change Label`   | Creates a visual label (arrow and percentage) indicating the change in attrition rate year-over-year. | `VAR curr = [Attrition Rate CY] VAR prev = [Attrition Rate PY] VAR pct = DIVIDE(curr - prev, prev, 0) VAR arrow = IF(pct>0, UNICHAR(8593), UNICHAR(8595)) RETURN arrow&" "&FORMAT(pct, "0.00%")` |
 | `Recently Promoted CY`     | Counts the number of active employees promoted within the current fiscal year.                        | `CALCULATE(DISTINCTCOUNT(Employee[EmployeeID]), Employee[Attrition] = "No", Employee[YearsSinceLastPromotion] = 0, 'Calendar'[FiscalYearNum] = MAX('Calendar'[FiscalYearNum]))` |
+
+Check out the transformed Data: 
+
+
