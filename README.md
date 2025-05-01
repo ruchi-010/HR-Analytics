@@ -36,7 +36,7 @@ This table contains data related to employee performance reviews.
 
 This table contains core employee information.
 
-| Column Name             | Description                                                                                                | Data Type |
+| Column Name             | Description                                                                                                | Data Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------- | :-------- |
 | `EmployeeID`            | A unique ID that identifies an employee.                                                                    | `text`    |
 | `FirstName`             | First name of an employee.                                                                                 | `text`    |
@@ -75,7 +75,7 @@ This table provides the descriptive labels for satisfaction ratings.
 
 This table provides the descriptive labels for performance ratings.
 
-| Column Name   | Description                                                                          | Data Type |
+| Column Name   | Description                                                                          | Data Type    |
 | :------------ | :----------------------------------------------------------------------------------- | :-------- |
 | `RatingID`    | A unique ID that connects to SelfRating and ManagerRating in FactPerformanceRating. | `number`  |
 | `RatingLevel` | Provides meaning to the rating level (e.g., Above and Beyond, Exceeds Expectation).   | `text`    |
@@ -84,7 +84,7 @@ This table provides the descriptive labels for performance ratings.
 
 This table provides the descriptive labels for education levels.
 
-| Column Name       | Description                                                        | Data Type |
+| Column Name       | Description                                                        | Data Type      |
 | :---------------- | :----------------------------------------------------------------- | :-------- |
 | `EducationLevelID` | A unique ID that connects to Education in DimEmployee.             | `number`  |
 | `EducationLevel`  | Provides meaning to the education level (e.g., Doctorate, Masters). | `text`    |
