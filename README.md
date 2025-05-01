@@ -136,7 +136,7 @@ This project involved a thorough exploration of AtLabs' HR data to understand ke
 | `Attrition Change Label`   | Creates a visual label (arrow and percentage) indicating the change in attrition rate year-over-year. | `VAR curr = [Attrition Rate CY] VAR prev = [Attrition Rate PY] VAR pct = DIVIDE(curr - prev, prev, 0) VAR arrow = IF(pct>0, UNICHAR(8593), UNICHAR(8595)) RETURN arrow&" "&FORMAT(pct, "0.00%")` |
 | `Recently Promoted CY`     | Counts the number of active employees promoted within the current fiscal year.                        | `CALCULATE(DISTINCTCOUNT(Employee[EmployeeID]), Employee[Attrition] = "No", Employee[YearsSinceLastPromotion] = 0, 'Calendar'[FiscalYearNum] = MAX('Calendar'[FiscalYearNum]))` |
 
-![Check out the transformed Data](HR-Dashboard.pbix)
+[Download the Power BI Dashboard](HR-Dashboard.pbix)
 
 # Observations
 
