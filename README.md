@@ -138,4 +138,18 @@ This project involved a thorough exploration of AtLabs' HR data to understand ke
 
 Check out the transformed Data: 
 
+# Observations
 
+1. **Elevated Attrition Rate with Upward Trend:** The current year's attrition rate is a concerning 16.12%, compounded by a significant 4.10 percentage point increase compared to the previous year, indicating a worsening trend that demands immediate attention to understand the root causes and mitigate further increases. This upward trajectory poses a risk to talent retention and increases recruitment costs.
+
+2. **Decrease in Active Employee Count:** There's a substantial 23.39% year-over-year decrease in the number of active employees, suggesting that the high attrition rate is directly impacting the size of the workforce and potentially creating operational challenges. This decline needs to be investigated in conjunction with hiring data to understand the net change in staffing levels.
+
+3. **Strong Internal Mobility:** The current year's promotion rate is a healthy 15.17%, reflecting a positive aspect of the organization's culture that encourages internal growth and career advancement. This could be a vital tool in combating some of the negative effects of the rising attrition by demonstrating opportunities for employee development.
+
+4. **Young Workforce Profile:** The active employee base is predominantly young, with 56% falling within the 20-29 age bracket, indicating a workforce in the early stages of their careers. This demographic concentration requires tailored development programs and retention strategies that cater to the specific needs and expectations of younger professionals.
+
+5. **Gender Differences in Attrition:** Male employees exhibit the highest attrition rate (36%), compared to Female and Non-Binary employees (both at 32%), suggesting that gender may be a factor influencing employee turnover. This warrants further investigation to understand potential differences in workplace experiences across genders.
+
+6. **Overtime as a Risk Factor:** Employees working overtime demonstrate a significantly higher attrition rate (30.53%) compared to those who don't (10.44%), strongly indicating that overtime is a substantial risk factor for employee turnover. This highlights the importance of managing workload and ensuring work-life balance.
+
+7. **State-Specific Attrition Variations:** California exhibits the highest attrition rate (17.49%) compared to other states, indicating potential location-specific challenges that require targeted retention strategies. This could be due to factors like cost of living, local job market competition, or internal company culture variations.
